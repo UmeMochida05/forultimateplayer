@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D645270F2A22331000F077BD /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645270D2A22331000F077BD /* ListTableViewController.swift */; };
+		D64527102A22331000F077BD /* ListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D645270E2A22331000F077BD /* ListTableViewController.xib */; };
 		D6B4F5D62A1CDB6D003E2FA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4F5D52A1CDB6D003E2FA0 /* AppDelegate.swift */; };
 		D6B4F5D82A1CDB6D003E2FA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4F5D72A1CDB6D003E2FA0 /* SceneDelegate.swift */; };
-		D6B4F5DA2A1CDB6D003E2FA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4F5D92A1CDB6D003E2FA0 /* ViewController.swift */; };
 		D6B4F5DD2A1CDB6D003E2FA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6B4F5DB2A1CDB6D003E2FA0 /* Main.storyboard */; };
 		D6B4F5DF2A1CDB6F003E2FA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6B4F5DE2A1CDB6F003E2FA0 /* Assets.xcassets */; };
 		D6B4F5E22A1CDB6F003E2FA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6B4F5E02A1CDB6F003E2FA0 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D645270D2A22331000F077BD /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		D645270E2A22331000F077BD /* ListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewController.xib; sourceTree = "<group>"; };
 		D6B4F5D22A1CDB6D003E2FA0 /* forultimateplayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = forultimateplayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B4F5D52A1CDB6D003E2FA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6B4F5D72A1CDB6D003E2FA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D6B4F5D92A1CDB6D003E2FA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D6B4F5DC2A1CDB6D003E2FA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6B4F5DE2A1CDB6F003E2FA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6B4F5E12A1CDB6F003E2FA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,11 +60,12 @@
 			children = (
 				D6B4F5D52A1CDB6D003E2FA0 /* AppDelegate.swift */,
 				D6B4F5D72A1CDB6D003E2FA0 /* SceneDelegate.swift */,
-				D6B4F5D92A1CDB6D003E2FA0 /* ViewController.swift */,
 				D6B4F5DB2A1CDB6D003E2FA0 /* Main.storyboard */,
 				D6B4F5DE2A1CDB6F003E2FA0 /* Assets.xcassets */,
 				D6B4F5E02A1CDB6F003E2FA0 /* LaunchScreen.storyboard */,
 				D6B4F5E32A1CDB6F003E2FA0 /* Info.plist */,
+				D645270D2A22331000F077BD /* ListTableViewController.swift */,
+				D645270E2A22331000F077BD /* ListTableViewController.xib */,
 			);
 			path = forultimateplayer;
 			sourceTree = "<group>";
@@ -128,6 +131,7 @@
 				D6B4F5E22A1CDB6F003E2FA0 /* LaunchScreen.storyboard in Resources */,
 				D6B4F5DF2A1CDB6F003E2FA0 /* Assets.xcassets in Resources */,
 				D6B4F5DD2A1CDB6D003E2FA0 /* Main.storyboard in Resources */,
+				D64527102A22331000F077BD /* ListTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6B4F5DA2A1CDB6D003E2FA0 /* ViewController.swift in Sources */,
+				D645270F2A22331000F077BD /* ListTableViewController.swift in Sources */,
 				D6B4F5D62A1CDB6D003E2FA0 /* AppDelegate.swift in Sources */,
 				D6B4F5D82A1CDB6D003E2FA0 /* SceneDelegate.swift in Sources */,
 			);
