@@ -28,7 +28,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXQ-2D-Kww">
-                        <rect key="frame" x="131" y="12" width="42" height="21"/>
+                        <rect key="frame" x="119" y="12" width="42" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qct-v6-c8v">
+                        <rect key="frame" x="216" y="12" width="42" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -40,6 +47,7 @@
             <connections>
                 <outlet property="datelabel" destination="lbd-Qp-uts" id="dRq-lq-IQe"/>
                 <outlet property="img" destination="ZlQ-91-wUP" id="TrN-a3-WM3"/>
+                <outlet property="stylelabel" destination="qct-v6-c8v" id="0wj-CX-ZIw"/>
                 <outlet property="titlelabel" destination="jXQ-2D-Kww" id="41h-Rz-dkE"/>
             </connections>
             <point key="canvasLocation" x="50.381679389312978" y="20.070422535211268"/>

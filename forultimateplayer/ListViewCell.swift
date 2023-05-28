@@ -12,6 +12,7 @@ class ListViewCell: UITableViewCell {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var datelabel: UILabel!
     @IBOutlet weak var titlelabel: UILabel!
+    @IBOutlet weak var stylelabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
