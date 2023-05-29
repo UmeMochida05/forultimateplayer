@@ -40,8 +40,9 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.titlelabel.text = titleOfMatchArray[indexPath.row]
         cell.stylelabel.text = styleOfMatchArray[indexPath.row]
         
+        
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd"
+        dateFormatter.dateFormat = "yyyy/MM/dd"
         
         let dateString = dateFormatter.string(from: dateOfMatchArray[indexPath.row])
         cell.datelabel.text = dateString
@@ -54,9 +55,9 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         
         func addDate(title: String, date: Date, style: String) {
-            titleOfMatchArray.append(title)
-            dateOfMatchArray.append(date)
-            styleOfMatchArray.append(style)
+            titleOfMatchArray.append(titlelabel)
+            dateOfMatchArray.append(datelabel)
+            styleOfMatchArray.append(stylelabel)
             tableView.reloadData()
         
         

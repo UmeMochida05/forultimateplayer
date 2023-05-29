@@ -12,12 +12,13 @@ class ContentViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var dateTextField: UIDatePicker!
     @IBOutlet weak var styleTextField: UITextField!
+    @IBOutlet var nextButton: UIButton!
     
     var dateItem: Date!
     var styleItem: String!
     
     
-    func datePickerValueChanged(_ sender: UIDatePicker){
+    @objc func datePickerValueChanged(_ sender: UIDatePicker){
         dateItem = sender.date
     }
     
@@ -41,9 +42,14 @@ class ContentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dateTextField.datePickerMode = .date
+        dateTextField.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
 
         // Do any additional setup after loading the view.
     }
+    
+    
     
 
     /*
