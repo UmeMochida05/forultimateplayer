@@ -9,7 +9,9 @@ import UIKit
 
 class ContentViewController: UIViewController {
     
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var dateTextField: UIDatePicker!
+    @IBOutlet weak var styleTextField: UITextField!
     
     var dateItem: Date!
     var styleItem: String!
@@ -20,7 +22,7 @@ class ContentViewController: UIViewController {
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
-        if let content = textField.text, !content.isEmpty {
+        if let content = titleTextField.text, !content.isEmpty {
             var titleOfMatchArray = UserDefaults.standard.array(forKey: "titleOfMatchArray")as? [String] ?? []
             titleOfMatchArray.append(content)
             UserDefaults.standard.set(titleOfMatchArray, forKey: "titleOfMatchArray")
@@ -33,7 +35,7 @@ class ContentViewController: UIViewController {
             styleOfMatchArray.append(styleItem)
             UserDefaults.standard.set(styleOfMatchArray, forKey: "styleOfMatchArray")
             
-            textField.text = ""
+            titleTextField.text = ""
         }
     }
 

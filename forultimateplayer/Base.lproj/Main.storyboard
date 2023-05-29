@@ -133,6 +133,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="7l9-8P-jbi"/>
+                    <connections>
+                        <outlet property="dateTextField" destination="I1x-mp-XUo" id="uvh-w2-Qfq"/>
+                        <outlet property="styleTextField" destination="BcR-9r-h4R" id="ohs-bh-olq"/>
+                        <outlet property="titleTextField" destination="PwI-mc-CAe" id="WHS-56-zak"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HTR-Zc-t2Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
