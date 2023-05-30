@@ -15,6 +15,7 @@ class ContentViewController: UIViewController {
     
     var dateItem: Date!
     var styleItem: String!
+    var titleItem: String!
     
     
     override func viewDidLoad() {
@@ -44,7 +45,7 @@ class ContentViewController: UIViewController {
         _ = UserDefaults.standard
         
             var titleOfMatchArray = UserDefaults.standard.array(forKey: "titleOfMatchArray")as? [String] ?? []
-            titleOfMatchArray.append(content)
+            titleOfMatchArray.append(titleItem)
             UserDefaults.standard.set(titleOfMatchArray, forKey: "titleOfMatchArray")
             
             var dateOfMatchArray = UserDefaults.standard.array(forKey: "dateOfMatchArray")as? [Date] ?? []

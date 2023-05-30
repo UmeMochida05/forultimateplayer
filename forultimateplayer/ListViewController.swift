@@ -25,6 +25,17 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         
         tableView.register(UINib(nibName: "ListViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
+        
+        let userDefaults = UserDefaults.standard
+        if let titleItem = userDefaults.array(forKey: "titleOfMatchArray") as? [String] {
+            titleOfMatchArray = titleItem
+        }
+        if let dateItem = userDefaults.array(forKey: "dateOfMatchArray") as? [Date] {
+            dateOfMatchArray = dateItem
+        }
+        if let styleItem = userDefaults.array(forKey: "styleOfMatchArray") as? [String] {
+            styleOfMatchArray = styleItem
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -47,9 +58,13 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         let dateString = dateFormatter.string(from: dateOfMatchArray[indexPath.row])
         cell.datelabel.text = dateString
         
-        
+        print("Title: \(titleOfMatchArray[indexPath.row])")
+        print ("Style: \(styleOfMatchArray[indexPath.row])")
+        print("Date: \(dateOfMatchArray[indexPath.row])")
         
         return cell
+        
+        
         
         
         }
@@ -59,7 +74,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             dateOfMatchArray.append(date)
             styleOfMatchArray.append(style)
             tableView.reloadData()
-        
+            tableView.reloadData()
         
            
         
