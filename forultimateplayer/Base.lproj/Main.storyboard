@@ -55,7 +55,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="addButton" destination="0lY-0l-dVW" id="VLM-w1-BeB"/>
                         <outlet property="tableView" destination="bVo-hG-5hW" id="AFZ-EP-9H9"/>
                     </connections>
                 </viewController>
@@ -332,7 +331,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="8cc-hc-uwE"/>
-        <segue reference="Axy-gS-7gb"/>
+        <segue reference="m0V-Se-cdc"/>
         <segue reference="rpO-J7-Ry8"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -16,10 +16,12 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet var addButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         
         tableView.register(UINib(nibName: "ListViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
@@ -34,15 +36,13 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! ListViewCell
         cell.img.image = UIImage(systemName: "Slice 2")
-        cell.datelabel.text = "date"
-        cell.titlelabel.text = "text"
-        
         cell.titlelabel.text = titleOfMatchArray[indexPath.row]
         cell.stylelabel.text = styleOfMatchArray[indexPath.row]
         
         
+        
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd"
+        dateFormatter.dateFormat = "MM/dd"
         
         let dateString = dateFormatter.string(from: dateOfMatchArray[indexPath.row])
         cell.datelabel.text = dateString
@@ -55,9 +55,9 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         
         func addDate(title: String, date: Date, style: String) {
-            titleOfMatchArray.append(titlelabel)
-            dateOfMatchArray.append(datelabel)
-            styleOfMatchArray.append(stylelabel)
+            titleOfMatchArray.append(title)
+            dateOfMatchArray.append(date)
+            styleOfMatchArray.append(style)
             tableView.reloadData()
         
         
