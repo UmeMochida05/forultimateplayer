@@ -37,12 +37,13 @@ class ContentViewController: UIViewController {
     
     }
     
+    
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard let content = titleTextField.text, !content.isEmpty else {
             return
         }
         
-        _ = UserDefaults.standard
+        var userDefaults = UserDefaults.standard
         
             var titleOfMatchArray = UserDefaults.standard.array(forKey: "titleOfMatchArray")as? [String] ?? []
             titleOfMatchArray.append(titleItem)
