@@ -34,6 +34,13 @@ class ContentViewController: UIViewController {
     
     @objc func datePickerValueChanged(_ sender: UIDatePicker){
         dateItem = sender.date
+        
+        func saveButtonTapped() {
+        
+        let memoryViewController = self.storyboard?.instantiateViewController(withIdentifier: "MemoryViewController") as! MemoryViewController
+        self.present(memoryViewController, animated: true, completion: nil)
+        
+        }
     
     }
     
@@ -65,8 +72,10 @@ class ContentViewController: UIViewController {
             
             navigationController?.popViewController(animated: true)
         
-        let memoryViewController = self.storyboard.contentViewController(withIdentifier: "MemoryViewController") as! MemoryViewController
-        self.present(memoryViewController, animated: true, completion: nil)
+        
+
+        
+       
             
             
         }
