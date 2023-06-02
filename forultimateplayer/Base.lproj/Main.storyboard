@@ -35,8 +35,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="4Fc-xz-5F9" id="NrP-1k-pcj"/>
-                                    <outlet property="delegate" destination="4Fc-xz-5F9" id="o3B-j6-4xE"/>
+                                    <outlet property="dataSource" destination="4Fc-xz-5F9" id="Rtn-Ie-qC6"/>
+                                    <outlet property="delegate" destination="4Fc-xz-5F9" id="FLI-Zs-yFb"/>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lr1-Mu-3Al">
@@ -55,6 +55,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="m6O-ab-Lnw"/>
+                    <connections>
+                        <outlet property="tableView" destination="8hC-AW-sDz" id="gBF-ed-AnM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="huP-Bi-Xpe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
