@@ -43,6 +43,10 @@ class ContentViewController: UIViewController {
             return
         }
         
+        titleItem = content
+        dateItem = dateTextField.date
+        styleItem = styleTextField.text
+        
         var userDefaults = UserDefaults.standard
         
             var titleOfMatchArray = UserDefaults.standard.array(forKey: "titleOfMatchArray")as? [String] ?? []
@@ -60,6 +64,9 @@ class ContentViewController: UIViewController {
             titleTextField.text = ""
             
             navigationController?.popViewController(animated: true)
+        
+        let memoryViewController = self.storyboard.contentViewController(withIdentifier: "MemoryViewController") as! MemoryViewController
+        self.present(memoryViewController, animated: true, completion: nil)
             
             
         }

@@ -63,10 +63,10 @@
             </objects>
             <point key="canvasLocation" x="4042.4000000000001" y="32.833583208395808"/>
         </scene>
-        <!--Content View Controller-->
+        <!--試合内容-->
         <scene sceneID="dT1-1Y-oMq">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="v7O-gj-ARG" customClass="ContentViewController" customModule="forultimateplayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemoryViewController" modalPresentationStyle="fullScreen" id="v7O-gj-ARG" customClass="ContentViewController" customModule="forultimateplayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AbN-Ux-iym">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,7 +121,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="DW4-bA-JeN"/>
+                    <navigationItem key="navigationItem" title="試合内容" customizationIdentifier="saveButton" id="DW4-bA-JeN"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dateTextField" destination="I1x-mp-XUo" id="uvh-w2-Qfq"/>

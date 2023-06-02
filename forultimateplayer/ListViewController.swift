@@ -69,12 +69,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         }
         
-        func addDate(title: String, date: Date, style: String) {
-            titleOfMatchArray.append(title)
-            dateOfMatchArray.append(date)
-            styleOfMatchArray.append(style)
-            tableView.reloadData()
-            tableView.reloadData()
+       
         
            
         
@@ -92,4 +87,4 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     */
 
-}
+
