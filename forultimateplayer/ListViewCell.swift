@@ -9,6 +9,8 @@ import UIKit
 
 class ListViewCell: UITableViewCell {
     
+    var didSelectCellAction: (() -> Void)?
+    
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var datelabel: UILabel!
     @IBOutlet weak var titlelabel: UILabel!
@@ -24,5 +26,6 @@ class ListViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     
 }
