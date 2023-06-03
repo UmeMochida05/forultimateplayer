@@ -320,6 +320,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="C1b-kC-ZY3"/>
         <segue reference="2uy-MM-gtQ"/>
     </inferredMetricsTieBreakers>
     <resources>
