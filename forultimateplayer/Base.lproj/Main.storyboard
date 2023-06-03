@@ -11,7 +11,7 @@
         <!--List View Controller-->
         <scene sceneID="1vb-C5-9vf">
             <objects>
-                <viewController id="4Fc-xz-5F9" customClass="ListViewController" customModule="forultimateplayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="4Fc-xz-5F9" customClass="ListViewController" customModule="forultimateplayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zcy-ec-ZWb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -250,7 +250,7 @@
                         <outlet property="howScoreTextField" destination="WAx-ea-Z2p" id="Vzt-DK-wNI"/>
                         <outlet property="timeTextField" destination="c0Q-Ra-sKp" id="gOg-db-akf"/>
                         <outlet property="whichTextField" destination="0ei-HN-Hae" id="NNX-Mm-OH3"/>
-                        <segue destination="t1c-8l-WtI" kind="show" identifier="toResult" id="cvo-jf-x5M"/>
+                        <segue destination="8Q2-SV-Flm" kind="show" identifier="toResult" id="LG1-DA-lXq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chH-PC-AuY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -258,49 +258,47 @@
             <point key="canvasLocation" x="6674.3999999999996" y="32.833583208395808"/>
         </scene>
         <!--Result View Controller-->
-        <scene sceneID="G3t-hD-hUX">
+        <scene sceneID="GKD-v1-HBB">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="t1c-8l-WtI" customClass="ResultViewController" customModule="forultimateplayer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZJH-6I-YX7">
+                <viewController id="8Q2-SV-Flm" customClass="ResultViewController" customModule="forultimateplayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iMJ-vy-KT2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5E5-4b-n5a">
-                                <rect key="frame" x="0.0" y="144" width="375" height="523"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="customCell2" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hHQ-Ym-gj1">
+                                <rect key="frame" x="0.0" y="75" width="375" height="572"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell2" id="T94-NV-wPQ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell2" id="UwJ-JI-GnK" customClass="ResultViewCell" customModule="forultimateplayer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T94-NV-wPQ" id="rSH-8y-i6w">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UwJ-JI-GnK" id="yfX-0m-UlD">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="t1c-8l-WtI" id="pdp-LJ-OA6"/>
-                                    <outlet property="delegate" destination="t1c-8l-WtI" id="Ubw-GS-znY"/>
-                                </connections>
                             </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="HnS-2d-WHo"/>
+                        <viewLayoutGuide key="safeArea" id="e4r-3K-Q5P"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="a5K-mW-D49">
-                        <barButtonItem key="rightBarButtonItem" title="ok" id="ka9-oj-kpl"/>
+                    <navigationItem key="navigationItem" id="y8t-za-33q">
+                        <barButtonItem key="rightBarButtonItem" title="ok" id="MVI-4N-EiE">
+                            <connections>
+                                <action selector="okButtonTapped:" destination="8Q2-SV-Flm" id="7JE-gc-udc"/>
+                                <segue destination="4Fc-xz-5F9" kind="presentation" identifier="toTop" id="2uy-MM-gtQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="tableView" destination="5E5-4b-n5a" id="EEb-qm-cW8"/>
-                        <segue destination="4Fc-xz-5F9" kind="show" identifier="toTop" id="Gjd-kt-gy4"/>
+                        <outlet property="tableView" destination="hHQ-Ym-gj1" id="gIU-6N-bFr"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dkd-3h-lzo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vDq-yI-XaM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7605.6000000000004" y="32.833583208395808"/>
+            <point key="canvasLocation" x="7527.1999999999998" y="32.833583208395808"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f0B-Oy-Glp">
@@ -322,7 +320,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Gjd-kt-gy4"/>
+        <segue reference="2uy-MM-gtQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Slice 1" width="264" height="115"/>

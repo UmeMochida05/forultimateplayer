@@ -15,6 +15,8 @@ class MemoryViewController: UIViewController {
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var howScoreTextField: UITextField!
     
+    @IBOutlet weak var tableView: UITableView!
+    
     var whichItem: String!
     var assistItem: String!
     var goalItem: String!
@@ -67,13 +69,18 @@ class MemoryViewController: UIViewController {
         
         
         self .performSegue(withIdentifier: "toResult", sender: nil)
+        
+        whichTextField.text = ""
+        assistTextField.text = ""
+        goalTextField.text = ""
+        timeTextField.text = ""
+        howScoreTextField.text = ""
+            
+           
+        
             
             
-        
-
-        
        
-            
             
         }
     }

@@ -26,7 +26,7 @@ class ResultViewController: UIViewController {
         
         
         
-        self.tableView.register(UINib(nibName: "ResultViewCell", bundle: nil), forCellReuseIdentifier: "customCell2")
+        tableView.register(UINib(nibName: "ResultViewCell", bundle: nil), forCellReuseIdentifier: "customCell2")
         
         let userDefaults = UserDefaults.standard
         if let whichItem = userDefaults.array(forKey: "whichArray") as? [String] {
@@ -51,10 +51,8 @@ class ResultViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func okButtonTapped(_ sender: UIButton) {
-        
-        self.performSegue(withIdentifier: "toTop", sender: self)
-    }
+    
+   
     
     
     
