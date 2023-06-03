@@ -25,7 +25,6 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         
         
-        
         tableView.register(UINib(nibName: "ResultViewCell", bundle: nil), forCellReuseIdentifier: "customCell2")
         
         let userDefaults = UserDefaults.standard
@@ -83,6 +82,9 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell2", for: indexPath) as! ResultViewCell
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         
         cell.whichlabel.text = whichArray[indexPath.row]

@@ -73,6 +73,16 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         }
     
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print("\(indexPath.row)")
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        performSegue(withIdentifier: "toResultVC", sender: nil)
+    }
+    
     
         
        

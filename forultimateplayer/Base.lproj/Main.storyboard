@@ -32,6 +32,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="8Q2-SV-Flm" kind="show" identifier="toResultVC" id="Bcj-sv-9nT"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -260,7 +263,7 @@
         <!--Result View Controller-->
         <scene sceneID="GKD-v1-HBB">
             <objects>
-                <viewController id="8Q2-SV-Flm" customClass="ResultViewController" customModule="forultimateplayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="8Q2-SV-Flm" customClass="ResultViewController" customModule="forultimateplayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iMJ-vy-KT2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -279,6 +282,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8Q2-SV-Flm" id="Nx7-Qu-88P"/>
+                                    <outlet property="delegate" destination="8Q2-SV-Flm" id="7zx-3Z-JUJ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="e4r-3K-Q5P"/>
@@ -294,6 +301,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="hHQ-Ym-gj1" id="gIU-6N-bFr"/>
+                        <segue destination="4Fc-xz-5F9" kind="show" id="aJ7-OR-yPS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vDq-yI-XaM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -320,7 +328,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="C1b-kC-ZY3"/>
+        <segue reference="Bcj-sv-9nT"/>
         <segue reference="2uy-MM-gtQ"/>
     </inferredMetricsTieBreakers>
     <resources>
