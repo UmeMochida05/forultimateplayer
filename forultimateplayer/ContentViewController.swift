@@ -25,6 +25,8 @@ class ContentViewController: UIViewController {
         dateTextField.datePickerMode = .date
         dateTextField.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
         
+        
+        
         let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
         navigationItem.rightBarButtonItem = saveButton
         
@@ -51,15 +53,15 @@ class ContentViewController: UIViewController {
         
         var userDefaults = UserDefaults.standard
         
-        var titleOfMatchArray = UserDefaults.standard.array(forKey: "titleOfMatchArray")as? [String] ?? []
+        var titleOfMatchArray = UserDefaults.standard.array(forKey: "titleOfMatchArray")as? Array<String> ?? []
         titleOfMatchArray.append(titleItem)
         UserDefaults.standard.set(titleOfMatchArray, forKey: "titleOfMatchArray")
         
-        var dateOfMatchArray = UserDefaults.standard.array(forKey: "dateOfMatchArray")as? [Date] ?? []
+        var dateOfMatchArray = UserDefaults.standard.array(forKey: "dateOfMatchArray")as? Array<Date> ?? []
         dateOfMatchArray.append(dateItem)
         UserDefaults.standard.set(dateOfMatchArray, forKey: "dateOfMatchArray")
         
-        var styleOfMatchArray = UserDefaults.standard.array(forKey: "styleOfMatchArray")as? [String] ?? []
+        var styleOfMatchArray = UserDefaults.standard.array(forKey: "styleOfMatchArray")as? Array<String> ?? []
         styleOfMatchArray.append(styleItem)
         UserDefaults.standard.set(styleOfMatchArray, forKey: "styleOfMatchArray")
         

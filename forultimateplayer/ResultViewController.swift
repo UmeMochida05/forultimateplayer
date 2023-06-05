@@ -102,6 +102,8 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    
 }
 
 

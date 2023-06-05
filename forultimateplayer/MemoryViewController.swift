@@ -22,10 +22,32 @@ class MemoryViewController: UIViewController {
     var goalItem: String!
     var timeItem: String!
     var howScoreItem: String!
+    
+    var doubleArray: [[String]] = []
+    
+    var whichArray: Array<String> = []
+    var assistArray: Array<String> = []
+    var goalArray: Array<String> = []
+    var timeArray: Array<String> = []
+    var howScoreArray: Array<String> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let count = min(whichArray.count, timeArray.count)
+        
+        
+        for i in 0..<doubleArray.count {
+            let elementArray: [String] = [
+            whichArray[i],
+            assistArray[i],
+            goalArray[i],
+            timeArray[i],
+            howScoreArray[i],
+            ]
+            doubleArray.append(elementArray)
+        }
+        
         // Do any additional setup after loading the view.
     }
     

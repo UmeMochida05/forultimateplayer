@@ -9,9 +9,9 @@ import UIKit
 
 class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    var titleOfMatchArray: [String] = []
-    var dateOfMatchArray: [Date] = []
-    var styleOfMatchArray: [String] = []
+    var titleOfMatchArray: Array<String> = []
+    var dateOfMatchArray: Array<Date> = []
+    var styleOfMatchArray: Array<String> = []
     
     
     
@@ -27,13 +27,13 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         tableView.register(UINib(nibName: "ListViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         
         let userDefaults = UserDefaults.standard
-        if let titleItem = userDefaults.array(forKey: "titleOfMatchArray") as? [String] {
+        if let titleItem = userDefaults.array(forKey: "titleOfMatchArray") as? Array<String> {
             titleOfMatchArray = titleItem
         }
-        if let dateItem = userDefaults.array(forKey: "dateOfMatchArray") as? [Date] {
+        if let dateItem = userDefaults.array(forKey: "dateOfMatchArray") as? Array<Date> {
             dateOfMatchArray = dateItem
         }
-        if let styleItem = userDefaults.array(forKey: "styleOfMatchArray") as? [String] {
+        if let styleItem = userDefaults.array(forKey: "styleOfMatchArray") as? Array<String> {
             styleOfMatchArray = styleItem
         }
 
