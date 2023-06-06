@@ -34,7 +34,7 @@ class MemoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let count = min(whichArray.count, timeArray.count)
+        _ = min(whichArray.count, timeArray.count)
         
         
         for i in 0..<doubleArray.count {
