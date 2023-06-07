@@ -13,6 +13,10 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var dateOfMatchArray: Array<Date> = []
     var styleOfMatchArray: Array<String> = []
     
+    @IBAction func toList(segue: UIStoryboardSegue){
+        
+    }
+    
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -80,8 +84,9 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        performSegue(withIdentifier: "toResultVC", sender: nil)
+        performSegue(withIdentifier: "toInfoVC", sender: nil)
     }
+    
     
     
         

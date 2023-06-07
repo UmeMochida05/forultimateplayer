@@ -33,7 +33,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="8Q2-SV-Flm" kind="show" identifier="toResultVC" id="Bcj-sv-9nT"/>
+                                            <segue destination="2YP-tE-f6g" kind="show" identifier="toInfoVC" id="23j-EK-B5j"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -142,6 +142,46 @@
             </objects>
             <point key="canvasLocation" x="5826.3999999999996" y="32.833583208395808"/>
         </scene>
+        <!--Info View Controller-->
+        <scene sceneID="fRB-rT-8CE">
+            <objects>
+                <viewController id="2YP-tE-f6g" customClass="InfoViewController" customModule="forultimateplayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gy1-Hu-jZo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sMa-Bn-W1F">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell3" id="WEd-L4-hVd" customClass="ResultViewCell" customModule="forultimateplayer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WEd-L4-hVd" id="6hj-vm-nr7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2YP-tE-f6g" id="3aO-cn-QA4"/>
+                                    <outlet property="delegate" destination="2YP-tE-f6g" id="eTn-3a-sRe"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3Ur-vD-4Co"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ofa-Vz-nCQ"/>
+                    <connections>
+                        <outlet property="tableView" destination="sMa-Bn-W1F" id="cwA-fu-dfr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ibB-0F-CpZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5824.8000000000002" y="752.47376311844084"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="UoT-Wg-FrY">
             <objects>
@@ -163,7 +203,7 @@
             </objects>
             <point key="canvasLocation" x="1653" y="839"/>
         </scene>
-        <!--試合内容-->
+        <!--試合記録-->
         <scene sceneID="TBq-Ik-Hc2">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="bnV-2O-iAt" customClass="MemoryViewController" customModule="forultimateplayer" customModuleProvider="target" sceneMemberID="viewController">
@@ -245,7 +285,7 @@
                         <viewLayoutGuide key="safeArea" id="vPk-Sh-JuO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="試合内容" id="qab-hl-uan">
+                    <navigationItem key="navigationItem" title="試合記録" id="qab-hl-uan">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="l9c-bN-8Vj">
                             <connections>
                                 <action selector="saveButtonTapped:" destination="bnV-2O-iAt" id="LrC-jZ-hom"/>
@@ -299,17 +339,16 @@
                     <navigationItem key="navigationItem" id="y8t-za-33q">
                         <barButtonItem key="rightBarButtonItem" title="ok" id="MVI-4N-EiE">
                             <connections>
-                                <action selector="okButtonTapped:" destination="8Q2-SV-Flm" id="7JE-gc-udc"/>
-                                <segue destination="4Fc-xz-5F9" kind="presentation" identifier="toTop" id="2uy-MM-gtQ"/>
+                                <segue destination="fka-kJ-Seg" kind="unwind" unwindAction="toListWithSegue:" id="KQh-EU-EKr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="hHQ-Ym-gj1" id="gIU-6N-bFr"/>
-                        <segue destination="4Fc-xz-5F9" kind="show" id="aJ7-OR-yPS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vDq-yI-XaM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="fka-kJ-Seg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="7527.1999999999998" y="32.833583208395808"/>
         </scene>
@@ -332,10 +371,6 @@
             <point key="canvasLocation" x="4092" y="32.833583208395808"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Bcj-sv-9nT"/>
-        <segue reference="2uy-MM-gtQ"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Slice 1" width="264" height="115"/>
         <systemColor name="systemBackgroundColor">

@@ -9,7 +9,6 @@ import UIKit
 
 class ResultViewCell: UITableViewCell {
     
-    @IBOutlet weak var numberlabel: UILabel!
     @IBOutlet weak var whichlabel: UILabel!
     @IBOutlet weak var assistlabel: UILabel!
     @IBOutlet weak var goallabel: UILabel!
