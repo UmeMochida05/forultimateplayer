@@ -17,6 +17,8 @@ class ResultViewController: UIViewController {
     var timeArray: Array<String> = []
     var howScoreArray: Array<String> = []
     
+    var num: Int = []
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var okButton: UIButton!
     

@@ -33,7 +33,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="2YP-tE-f6g" kind="show" identifier="toInfoVC" id="23j-EK-B5j"/>
+                                            <segue destination="8Q2-SV-Flm" kind="show" identifier="toResultVC" id="JT4-GE-YR6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -371,6 +371,9 @@
             <point key="canvasLocation" x="4092" y="32.833583208395808"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="JT4-GE-YR6"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Slice 1" width="264" height="115"/>
         <systemColor name="systemBackgroundColor">
