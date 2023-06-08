@@ -9,14 +9,13 @@ import UIKit
 
 class ResultViewController: UIViewController {
     
+    var doubleArray: [[String]] = []
     
-    
-    var whichArray: [String] = []
-    var assistArray: [String] = []
-    var goalArray: [String] = []
-    var timeArray: [String] = []
-    var howScoreArray: [String] = []
-    
+    var whichArray: Array<String> = []
+    var assistArray: Array<String> = []
+    var goalArray: Array<String> = []
+    var timeArray: Array<String> = []
+    var howScoreArray: Array<String> = []
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var okButton: UIButton!
