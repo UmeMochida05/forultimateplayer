@@ -83,7 +83,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        performSegue(withIdentifier: "toResultVC", sender: nil)
+        performSegue(withIdentifier: "toContentVC", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
