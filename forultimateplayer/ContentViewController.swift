@@ -66,8 +66,8 @@ class ContentViewController: UIViewController {
         UserDefaults.standard.set(styleOfMatchArray, forKey: "styleOfMatchArray")
         
         titleTextField.text = ""
+        styleTextField.text = ""
         
-        self.performSegue(withIdentifier: "toMemory", sender: self)
         
         
         

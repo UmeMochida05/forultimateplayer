@@ -17,6 +17,15 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var indexNum = 0
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var addButton: UIButton!
+    
+    @IBAction func toListVC(segue: UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func toFinish(segue: UIStoryboardSegue) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +49,11 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func addButtonTap() {
+        self.performSegue(withIdentifier: "toContentVC", sender: self)
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -83,12 +97,12 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        performSegue(withIdentifier: "toContentVC", sender: nil)
+        self.performSegue(withIdentifier: "toResultVC", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let resultVC: ResultViewController = segue.destination as! ResultViewController
-        resultVC.num = [indexNum]
+        if let resultVC = segue.destination as? ResultViewController {
+            resultVC.num = [indexNum] }
         }
         
             
