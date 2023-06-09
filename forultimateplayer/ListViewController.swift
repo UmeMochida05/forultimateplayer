@@ -87,8 +87,9 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let resultVC: ResultViewController = (segue.destination as? ResultViewController)!
-            resultVC.num = indexNum
+        let resultVC: ResultViewController = segue.destination as! ResultViewController
+        resultVC.num = [indexNum]
+        }
         
             
             
@@ -112,4 +113,4 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
      */
     
     
-}
+
