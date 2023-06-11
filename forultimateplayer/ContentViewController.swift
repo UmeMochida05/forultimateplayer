@@ -13,14 +13,27 @@ class ContentViewController: UIViewController {
     @IBOutlet weak var dateTextField: UIDatePicker!
     @IBOutlet weak var styleTextField: UITextField!
     
+    var titleOfMatchArray: Array<String>!
+    var dateOfMatchArray: Array<Date>!
+    var styleOfMatchArray: Array<String>!
+    
     
     var dateItem: Date!
     var styleItem: String!
     var titleItem: String!
+    var listNumber: Int = 0
+    
+    var userdefaults = UserDefaults.standard
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if userdefaults.object(forKey: "titleItem") as? Array<String> == nil{
+            titleOfMatchArray = []
+        } else {
+            titleOfMatchArray = userdefaults.object(forKey: "titleItem") as? Array<String>
+        }
         
         dateTextField.datePickerMode = .date
         dateTextField.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
@@ -42,16 +55,40 @@ class ContentViewController: UIViewController {
     }
     
     
-    @IBAction func saveButtonTapped(_ sender: UIButton) {
+    @IBAction func saveButtonTapped(_ sender: Any) {
         guard let content = titleTextField.text, !content.isEmpty else {
             return
         }
+        
+        titleOfMatchArray.append(String(listNumber))
+        
+        userdefaults.set(titleOfMatchArray, forKey: "titleItem")
         
         titleItem = content
         dateItem = dateTextField.date
         styleItem = styleTextField.text
         
-        var userDefaults = UserDefaults.standard
+        var userdefaults = UserDefaults.standard
+        
+        let contentArray: Array<String> = []
+        var contentsArray: Array<Array<String>>!
+        
+        if userdefaults.object(forKey: "content") as? Array<Any> != nil {
+            
+            contentsArray = userdefaults.object(forKey: "content") as? Array<Array<String>>
+            
+            contentsArray.append(contentArray)
+            
+            userdefaults.set(contentsArray, forKey: "content")
+            print(contentsArray)
+            
+        } else {
+            contentsArray = [[]]
+            userdefaults.set(contentsArray, forKey: "content")
+            print(contentsArray)
+        }
+        
+        self.dismiss(animated: true)
         
         var titleOfMatchArray = UserDefaults.standard.array(forKey: "titleOfMatchArray")as? Array<String> ?? []
         titleOfMatchArray.append(titleItem)

@@ -17,6 +17,13 @@ class ResultViewController: UIViewController {
     var timeArray: Array<String> = []
     var howScoreArray: Array<String> = []
     
+    var selectedCellIndex: Int!
+    var contentsArray: Array<Array<String>>!
+    var contentArray: Array<String>!
+    
+    var userdefaults = UserDefaults.standard
+
+    
     var num: [Int] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -49,6 +56,16 @@ class ResultViewController: UIViewController {
             
         }
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if userdefaults.object(forKey: "content") as? Array<Any> != nil {
+            contentsArray = userdefaults.object(forKey: "content") as? Array<Array<String>>
+            
+            print(contentsArray)
+        } else {
+            contentsArray[selectedCell]
+        }
     }
     
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MemoryViewController: UIViewController {
+class MemoryViewController: UIViewController, UI {
     
     @IBOutlet weak var whichTextField: UITextField!
     @IBOutlet weak var assistTextField: UITextField!
@@ -30,6 +30,8 @@ class MemoryViewController: UIViewController {
     var goalArray: Array<String> = []
     var timeArray: Array<String> = []
     var howScoreArray: Array<String> = []
+    
+    var userdefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +53,8 @@ class MemoryViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard let content = whichTextField.text, !content.isEmpty else {
             return
@@ -67,7 +71,7 @@ class MemoryViewController: UIViewController {
         howScoreItem = howScoreTextField.text
         
         
-        var userDefaults = UserDefaults.standard
+        var userdefaults = UserDefaults.standard
         
             var whichArray = UserDefaults.standard.array(forKey: "whichArray")as? [String] ?? []
             whichArray.append(whichItem)

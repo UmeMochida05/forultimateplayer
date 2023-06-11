@@ -9,12 +9,13 @@ import UIKit
 
 class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    var titleOfMatchArray: Array<String> = []
-    var dateOfMatchArray: Array<Date> = []
-    var styleOfMatchArray: Array<String> = []
+    var titleOfMatchArray: Array<String>!
+    var dateOfMatchArray: Array<Date>!
+    var styleOfMatchArray: Array<String>!
     var resultVC: UIViewController!
     
-    var indexNum = 0
+    
+    let userdefaults = UserDefaults.standard
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var addButton: UIButton!
@@ -36,16 +37,18 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         tableView.register(UINib(nibName: "ListViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         
-        let userDefaults = UserDefaults.standard
-        if let titleItem = userDefaults.array(forKey: "titleOfMatchArray") as? Array<String> {
+       
+        if let titleItem = userdefaults.array(forKey: "titleOfMatchArray") as? Array<String> {
             titleOfMatchArray = titleItem
         }
-        if let dateItem = userDefaults.array(forKey: "dateOfMatchArray") as? Array<Date> {
+        if let dateItem = userdefaults.array(forKey: "dateOfMatchArray") as? Array<Date> {
             dateOfMatchArray = dateItem
         }
-        if let styleItem = userDefaults.array(forKey: "styleOfMatchArray") as? Array<String> {
+        if let styleItem = userdefaults.array(forKey: "styleOfMatchArray") as? Array<String> {
             styleOfMatchArray = styleItem
         }
+        
+        
         
         // Do any additional setup after loading the view.
     }
@@ -57,6 +60,12 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        
+        if userdefaults.object(forKey: "titleItem") as? Array<String> == nil {
+            titleOfMatchArray = []
+        } else {
+            titleOfMatchArray = userdefaults.object(forKey: "titleItem") as? Array<String>
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,20 +99,15 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        indexNum = indexPath.row
+        guard let resultVC = storyboard?.instantiateViewController(identifier: "ResultViewController") as? ResultViewController else {
+            return
+        }
         
-        print("\(indexPath.row)")
         
-        tableView.deselectRow(at: indexPath, animated: true)
         
-        self.performSegue(withIdentifier: "toResultVC", sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let resultVC = segue.destination as? ResultViewController {
-            resultVC.num = [indexNum] }
-        }
+    
         
             
             
