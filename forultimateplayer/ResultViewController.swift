@@ -36,20 +36,20 @@ class ResultViewController: UIViewController {
         tableView.register(UINib(nibName: "ResultViewCell", bundle: nil), forCellReuseIdentifier: "customCell2")
         
         let userDefaults = UserDefaults.standard
-        if let whichItem = userDefaults.array(forKey: "whichArray") as? [String] {
+        if let whichItem = userDefaults.array(forKey: "whichArray") as? Array<String> {
             whichArray = whichItem
         }
-        if let assistItem = userDefaults.array(forKey: "assistArray") as? [String] {
+        if let assistItem = userDefaults.array(forKey: "assistArray") as? Array<String> {
             assistArray = assistItem
         }
-        if let goalItem = userDefaults.array(forKey: "goalArray") as? [String] {
+        if let goalItem = userDefaults.array(forKey: "goalArray") as? Array<String> {
             goalArray = goalItem
         }
-        if let timeItem = userDefaults.array(forKey: "timeArray") as? [String] {
+        if let timeItem = userDefaults.array(forKey: "timeArray") as? Array<String> {
             timeArray = timeItem
             print(timeItem)
         }
-        if let howScoreItem = userDefaults.array(forKey: "howScoreArray") as? [String] {
+        if let howScoreItem = userDefaults.array(forKey: "howScoreArray") as? Array<String> {
             howScoreArray = howScoreItem
             print(howScoreArray)
         } else {
@@ -64,7 +64,8 @@ class ResultViewController: UIViewController {
             
             print(contentsArray)
         } else {
-            contentsArray[selectedCell]
+            contentsArray[selectedCellIndex] = contentArray
+            userdefaults.set(contentsArray, forKey: "content")
         }
     }
     
@@ -95,11 +96,12 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return whichArray.count
+        return contentArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell2", for: indexPath) as! ResultViewCell
+        
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -121,6 +123,24 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    @IBAction func addButtonTapped(_ sender: Any) {
+        
+        performSegue(withIdentifier: "toMemoryVC", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMemoryVC" {
+            let destinationVC = segue.destination as! MemoryViewController
+            
+            
+            destinationVC.selectedCellIndex = selectedCellIndex
+            
+        }
+    }
+    
+    @IBAction func Back(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     
 }
 

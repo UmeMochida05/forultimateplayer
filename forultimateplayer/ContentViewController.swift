@@ -56,6 +56,9 @@ class ContentViewController: UIViewController {
     
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        
+        performSegue(withIdentifier: "toListVC", sender: nil)
+        
         guard let content = titleTextField.text, !content.isEmpty else {
             return
         }

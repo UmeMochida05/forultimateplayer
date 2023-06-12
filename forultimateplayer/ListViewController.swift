@@ -21,7 +21,9 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet var addButton: UIButton!
     
     @IBAction func toListVC(segue: UIStoryboardSegue) {
+        let listView = segue.source as? ListViewController
         
+        titlelabel.text = 
     }
     
     @IBAction func toFinish(segue: UIStoryboardSegue) {
@@ -53,8 +55,8 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func addButtonTap() {
-        self.performSegue(withIdentifier: "toContentVC", sender: self)
+    @IBAction func saveButtonTap() {
+        
     }
     
     
@@ -102,6 +104,10 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         guard let resultVC = storyboard?.instantiateViewController(identifier: "ResultViewController") as? ResultViewController else {
             return
         }
+        
+        resultVC.selectedCellIndex = indexPath.row
+        
+        present(resultVC, animated: true, completion: nil)
         
         
         

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MemoryViewController: UIViewController, UI {
+class MemoryViewController: UIViewController {
     
     @IBOutlet weak var whichTextField: UITextField!
     @IBOutlet weak var assistTextField: UITextField!
@@ -31,23 +31,21 @@ class MemoryViewController: UIViewController, UI {
     var timeArray: Array<String> = []
     var howScoreArray: Array<String> = []
     
+    var selectedCellIndex: Int!
+    
+    var contentsArray: Array<Array<String>>!
+    var contentArray: Array<String>!
+    
     var userdefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        _ = min(whichArray.count, timeArray.count)
-        
-        
-        for i in 0..<doubleArray.count {
-            let elementArray: [String] = [
-            whichArray[i],
-            assistArray[i],
-            goalArray[i],
-            timeArray[i],
-            howScoreArray[i],
-            ]
-            doubleArray.append(elementArray)
+        if userdefaults.object(forKey: "content") as? Array<Any> != nil {
+            
+            contentsArray = userdefaults.object(forKey: "content") as? Array<Array<String>>
+            
+            contentArray = contentsArray[selectedCellIndex]
         }
         
         // Do any additional setup after loading the view.
@@ -94,6 +92,7 @@ class MemoryViewController: UIViewController, UI {
         UserDefaults.standard.set(howScoreArray, forKey: "howScoreArray")
         
         
+        
         self .performSegue(withIdentifier: "toResult", sender: nil)
         
         whichTextField.text = ""
@@ -101,6 +100,19 @@ class MemoryViewController: UIViewController, UI {
         goalTextField.text = ""
         timeTextField.text = ""
         howScoreTextField.text = ""
+        
+        contentArray.append(whichTextField.text!)
+        contentArray.append(assistTextField.text!)
+        contentArray.append(goalTextField.text!)
+        contentArray.append(timeTextField.text!)
+        contentArray.append(howScoreTextField.text!)
+        
+        contentsArray[selectedCellIndex] = contentArray
+        
+        userdefaults.set(contentsArray, forKey: "content")
+        
+        self.dismiss(animated: true)
+        
             
            
         
