@@ -9,6 +9,12 @@ import UIKit
 
 class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    @IBAction func toListVC(segue: UIStoryboardSegue) {
+        }
+    
+    @IBAction func toFinish(segue: UIStoryboardSegue) {
+        }
+    
     var titleOfMatchArray: Array<String>!
     var dateOfMatchArray: Array<Date>!
     var styleOfMatchArray: Array<String>!
@@ -20,16 +26,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var addButton: UIButton!
     
-    @IBAction func toListVC(segue: UIStoryboardSegue) {
-        let listView = segue.source as? ListViewController
-        
-        titlelabel.text = 
-    }
-    
-    @IBAction func toFinish(segue: UIStoryboardSegue) {
-        
-    }
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,10 +50,6 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         
         // Do any additional setup after loading the view.
-    }
-    
-    @IBAction func saveButtonTap() {
-        
     }
     
     
