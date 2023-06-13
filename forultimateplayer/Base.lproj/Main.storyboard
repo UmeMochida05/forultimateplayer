@@ -189,27 +189,6 @@
             </objects>
             <point key="canvasLocation" x="5902" y="-580"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="UoT-Wg-FrY">
-            <objects>
-                <viewController id="iPm-1M-LkA" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ubl-H4-nGO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bgW-Yr-hnf">
-                                <rect key="frame" x="6" y="197" width="375" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </datePicker>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="cqI-QR-lNr"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eTr-bg-Dk8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1653" y="839"/>
-        </scene>
         <!--試合記録-->
         <scene sceneID="TBq-Ik-Hc2">
             <objects>
@@ -348,7 +327,7 @@
         <!--Result View Controller-->
         <scene sceneID="GKD-v1-HBB">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="8Q2-SV-Flm" customClass="ResultViewController" customModule="forultimateplayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultViewController" modalPresentationStyle="fullScreen" id="8Q2-SV-Flm" customClass="ResultViewController" customModule="forultimateplayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iMJ-vy-KT2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

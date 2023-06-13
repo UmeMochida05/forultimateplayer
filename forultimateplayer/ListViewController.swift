@@ -9,8 +9,7 @@ import UIKit
 
 class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    @IBAction func toListVC(segue: UIStoryboardSegue) {
-        }
+    
     
     @IBAction func toFinish(segue: UIStoryboardSegue) {
         }
@@ -92,6 +91,11 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
     }
     
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let resultVC = storyboard?.instantiateViewController(identifier: "ResultViewController") as? ResultViewController else {
@@ -104,6 +108,18 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toResultVC" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                guard let destination = segue.destination as? ResultViewController else {
+                    return
+                }
+                
+                
+            }
+        }
     }
     
     
