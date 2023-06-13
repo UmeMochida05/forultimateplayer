@@ -57,7 +57,7 @@ class ContentViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         
-        performSegue(withIdentifier: "toListVC", sender: nil)
+        self.navigationController?.popViewController(animated: true)
         
         guard let content = titleTextField.text, !content.isEmpty else {
             return
@@ -91,7 +91,7 @@ class ContentViewController: UIViewController {
             print(contentsArray)
         }
         
-        self.dismiss(animated: true)
+        
         
         var titleOfMatchArray = UserDefaults.standard.array(forKey: "titleOfMatchArray")as? Array<String> ?? []
         titleOfMatchArray.append(titleItem)

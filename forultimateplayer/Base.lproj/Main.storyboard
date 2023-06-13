@@ -56,7 +56,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="v7O-gj-ARG" kind="show" identifier="toContentVC" id="Gdx-86-HXd"/>
+                                    <segue destination="v7O-gj-ARG" kind="show" identifier="" id="Gdx-86-HXd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -171,11 +171,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="試合内容" customizationIdentifier="saveButton" id="DW4-bA-JeN">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="14W-jr-ezK">
-                            <connections>
-                                <segue destination="Rhh-Be-EQ6" kind="unwind" unwindAction="toListVCWithSegue:" id="fki-WZ-h2s"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="14W-jr-ezK"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -185,7 +181,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HTR-Zc-t2Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Rhh-Be-EQ6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5902" y="-580"/>
         </scene>
