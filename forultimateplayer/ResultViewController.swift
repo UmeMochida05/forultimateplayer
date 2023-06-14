@@ -113,9 +113,9 @@ class ResultViewController: UIViewController {
             }
         }
         
-        @IBAction func Back(_ sender: Any) {
-            self.dismiss(animated: true)
-        }
+       // @IBAction func Back(_ sender: Any) {
+            //self.dismiss(animated: true)
+        //}
         
     }
     
