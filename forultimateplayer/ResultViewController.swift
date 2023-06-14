@@ -76,7 +76,7 @@ class ResultViewController: UIViewController {
         } else {
             
         }
-        
+       
         tableView.reloadData()
     }
     
@@ -103,6 +103,8 @@ class ResultViewController: UIViewController {
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "customCell2", for: indexPath) as! ResultViewCell
             
+            selectedCellIndex = indexPath.row
+            
             let whichArray = whichsArray[selectedCellIndex]
             let assistArray = assistsArray[selectedCellIndex]
             let goalArray = goalsArray[selectedCellIndex]
@@ -115,7 +117,11 @@ class ResultViewController: UIViewController {
             cell.timelabel.text = timeArray.joined(separator: ",")
             cell.howScorelabel.text = howScoreArray.joined(separator: ",")
             
-            
+            print(whichArray)
+            print(assistArray)
+            print(goalArray)
+            print(timeArray)
+            print(howScoreArray)
             
             
             
@@ -124,6 +130,9 @@ class ResultViewController: UIViewController {
         
         @IBAction func addButtonTapped(_ sender: Any) {
             
+            performSegue(withIdentifier: "toMemoryVC", sender: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextVC = storyboard.instantiateViewController(identifier: "ResultViewController")
             performSegue(withIdentifier: "toMemoryVC", sender: nil)
         }
         
