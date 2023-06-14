@@ -13,9 +13,9 @@ class ContentViewController: UIViewController {
     @IBOutlet weak var dateTextField: UIDatePicker!
     @IBOutlet weak var styleTextField: UITextField!
     
-    var titleOfMatchArray: Array<String>!
-    var dateOfMatchArray: Array<Date>!
-    var styleOfMatchArray: Array<String>!
+    var titleOfMatchArray: [String]!
+    var dateOfMatchArray: [Date]!
+    var styleOfMatchArray: [String]!
     
     
     var dateItem: Date!
@@ -29,10 +29,10 @@ class ContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if userdefaults.object(forKey: "titleItem") as? Array<String> == nil{
+        if userdefaults.object(forKey: "titleItem") as? [String] == nil{
             titleOfMatchArray = []
         } else {
-            titleOfMatchArray = userdefaults.object(forKey: "titleItem") as? Array<String>
+            titleOfMatchArray = userdefaults.object(forKey: "titleItem") as? [String]
         }
         
         dateTextField.datePickerMode = .date
@@ -70,26 +70,6 @@ class ContentViewController: UIViewController {
         titleItem = content
         dateItem = dateTextField.date
         styleItem = styleTextField.text
-        
-        var userdefaults = UserDefaults.standard
-        
-        let contentArray: Array<String> = []
-        var contentsArray: Array<Array<String>>!
-        
-        if userdefaults.object(forKey: "content") as? Array<Any> != nil {
-            
-            contentsArray = userdefaults.object(forKey: "content") as? Array<Array<String>>
-            
-            contentsArray.append(contentArray)
-            
-            userdefaults.set(contentsArray, forKey: "content")
-            print(contentsArray)
-            
-        } else {
-            contentsArray = [[]]
-            userdefaults.set(contentsArray, forKey: "content")
-            print(contentsArray)
-        }
         
         
         

@@ -35,7 +35,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="8Q2-SV-Flm" kind="show" identifier="toResultVC" id="CP3-Cn-tGV"/>
+                                            <segue destination="8Q2-SV-Flm" kind="show" identifier="toResultVC" id="gnj-SC-RY9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -253,7 +253,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="どちら" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiv-Nk-ezs">
-                                <rect key="frame" x="54" y="108" width="71" height="21"/>
+                                <rect key="frame" x="54" y="42" width="71" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

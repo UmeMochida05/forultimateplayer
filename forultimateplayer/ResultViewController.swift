@@ -8,23 +8,15 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-    
-    var doubleArray: [[String]] = []
-    
-    var whichArray: Array<String> = []
-    var assistArray: Array<String> = []
-    var goalArray: Array<String> = []
-    var timeArray: Array<String> = []
-    var howScoreArray: Array<String> = []
+    var whichsArray: [[String]] = []
+    var assistsArray: [[String]] = []
+    var goalsArray: [[String]] = []
+    var timesArray: [[String]] = []
+    var howScoresArray: [[String]] = []
     
     var selectedCellIndex: Int!
-    var contentsArray: Array<Array<String>>!
-    var contentArray: Array<String>!
     
     var userdefaults = UserDefaults.standard
-
-    
-    var num: [Int] = []
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var okButton: UIButton!
@@ -36,48 +28,33 @@ class ResultViewController: UIViewController {
         tableView.register(UINib(nibName: "ResultViewCell", bundle: nil), forCellReuseIdentifier: "customCell2")
         
         let userDefaults = UserDefaults.standard
-        if let whichItem = userDefaults.array(forKey: "whichArray") as? Array<String> {
-            whichArray = whichItem
+        if let whichItem = userDefaults.array(forKey: "whichsArray") as? [[String]] {
+            whichsArray = whichItem
         }
-        if let assistItem = userDefaults.array(forKey: "assistArray") as? Array<String> {
-            assistArray = assistItem
+        if let assistItem = userDefaults.array(forKey: "assistsArray") as? [[String]] {
+            assistsArray = assistItem
         }
-        if let goalItem = userDefaults.array(forKey: "goalArray") as? Array<String> {
-            goalArray = goalItem
+        if let goalItem = userDefaults.array(forKey: "goalsArray") as? [[String]] {
+            goalsArray = goalItem
         }
-        if let timeItem = userDefaults.array(forKey: "timeArray") as? Array<String> {
-            timeArray = timeItem
+        if let timeItem = userDefaults.array(forKey: "timesArray") as? [[String]] {
+            timesArray = timeItem
             print(timeItem)
         }
-        if let howScoreItem = userDefaults.array(forKey: "howScoreArray") as? Array<String> {
-            howScoreArray = howScoreItem
-            print(howScoreArray)
+        if let howScoreItem = userDefaults.array(forKey: "howScoresArray") as? [[String]] {
+            howScoresArray = howScoreItem
+            print(howScoresArray)
         } else {
             
         }
+        tableView.delegate = self
+        tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if userdefaults.object(forKey: "content") as? Array<Any> != nil {
-            contentsArray = userdefaults.object(forKey: "content") as? Array<Array<String>>
-            
-            print(contentsArray)
-        } else {
-            contentsArray[selectedCellIndex] = contentArray
-            userdefaults.set(contentsArray, forKey: "content")
-        }
+        tableView.reloadData()
     }
-    
-    
-   
-    
-    
-    
-        
-        
-    }
-    
     
     /*
      // MARK: - Navigation
@@ -89,59 +66,58 @@ class ResultViewController: UIViewController {
      }
      */
     
-    
-
-
-extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contentArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell2", for: indexPath) as! ResultViewCell
-        
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        
-        cell.whichlabel.text = whichArray[indexPath.row]
-        cell.assistlabel.text = assistArray[indexPath.row]
-        cell.goallabel.text = goalArray[indexPath.row]
-        cell.timelabel.text = timeArray[indexPath.row]
-        cell.howscorelabel.text = howScoreArray[indexPath.row]
-        
-        
-        print("Which: \(whichArray[indexPath.row])")
-        print("Assist: \(assistArray[indexPath.row])")
-        print("Goal: \(goalArray[indexPath.row])")
-        print("Time: \(timeArray[indexPath.row])")
-        print("HowScore: \(howScoreArray[indexPath.row])")
-        
-        return cell
-    }
-    
-    @IBAction func addButtonTapped(_ sender: Any) {
-        
-        performSegue(withIdentifier: "toMemoryVC", sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toMemoryVC" {
-            let destinationVC = segue.destination as! MemoryViewController
-            
-            
-            destinationVC.selectedCellIndex = selectedCellIndex
-            
-        }
-    }
-    
-    @IBAction func Back(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
-    
 }
-
+    
+    
+    extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
+        
+        
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return whichsArray.count
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "customCell2", for: indexPath) as! ResultViewCell
+            
+            let whichArray = whichsArray[selectedCellIndex]
+            let assistArray = assistsArray[selectedCellIndex]
+            let goalArray = goalsArray[selectedCellIndex]
+            let timeArray = timesArray[selectedCellIndex]
+            let howScoreArray = howScoresArray[selectedCellIndex]
+            
+            cell.whichlabel.text = whichArray.joined(separator: ",")
+            cell.assistlabel.text = assistArray.joined(separator: ",")
+            cell.goallabel.text = goalArray.joined(separator: ",")
+            cell.timelabel.text = timeArray.joined(separator: ",")
+            cell.howScorelabel.text = howScoreArray.joined(separator: ",")
+            
+            
+            
+            
+            
+            return cell
+        }
+        
+        @IBAction func addButtonTapped(_ sender: Any) {
+            
+            performSegue(withIdentifier: "toMemoryVC", sender: nil)
+        }
+        
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "toMemoryVC" {
+                let destinationVC = segue.destination as! MemoryViewController
+                
+                
+                destinationVC.selectedCellIndex = selectedCellIndex
+                
+            }
+        }
+        
+        @IBAction func Back(_ sender: Any) {
+            self.dismiss(animated: true)
+        }
+        
+    }
+    
+    
 

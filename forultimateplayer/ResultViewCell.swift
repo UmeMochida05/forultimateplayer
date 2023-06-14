@@ -13,7 +13,7 @@ class ResultViewCell: UITableViewCell {
     @IBOutlet weak var assistlabel: UILabel!
     @IBOutlet weak var goallabel: UILabel!
     @IBOutlet weak var timelabel: UILabel!
-    @IBOutlet weak var howscorelabel: UILabel!
+    @IBOutlet weak var howScorelabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

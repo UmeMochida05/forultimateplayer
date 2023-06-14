@@ -14,9 +14,9 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBAction func toFinish(segue: UIStoryboardSegue) {
         }
     
-    var titleOfMatchArray: Array<String>!
-    var dateOfMatchArray: Array<Date>!
-    var styleOfMatchArray: Array<String>!
+    var titleOfMatchArray: [String] = []
+    var dateOfMatchArray: [Date] = []
+    var styleOfMatchArray: [String] = []
     var resultVC: UIViewController!
     
     
@@ -36,13 +36,13 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         tableView.register(UINib(nibName: "ListViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         
        
-        if let titleItem = userdefaults.array(forKey: "titleOfMatchArray") as? Array<String> {
+        if let titleItem = userdefaults.array(forKey: "titleOfMatchArray") as? [String] {
             titleOfMatchArray = titleItem
         }
-        if let dateItem = userdefaults.array(forKey: "dateOfMatchArray") as? Array<Date> {
+        if let dateItem = userdefaults.array(forKey: "dateOfMatchArray") as? [Date] {
             dateOfMatchArray = dateItem
         }
-        if let styleItem = userdefaults.array(forKey: "styleOfMatchArray") as? Array<String> {
+        if let styleItem = userdefaults.array(forKey: "styleOfMatchArray") as? [String] {
             styleOfMatchArray = styleItem
         }
         
@@ -55,11 +55,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
         
-        if userdefaults.object(forKey: "titleItem") as? Array<String> == nil {
-            titleOfMatchArray = []
-        } else {
-            titleOfMatchArray = userdefaults.object(forKey: "titleItem") as? Array<String>
-        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -116,7 +112,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 guard let destination = segue.destination as? ResultViewController else {
                     return
                 }
-                
+                destination.selectedCellIndex = indexPath.row
                 
             }
         }

@@ -25,16 +25,15 @@ class MemoryViewController: UIViewController {
     
     var doubleArray: [[String]] = []
     
-    var whichArray: Array<String> = []
-    var assistArray: Array<String> = []
-    var goalArray: Array<String> = []
-    var timeArray: Array<String> = []
-    var howScoreArray: Array<String> = []
+    var whichsArray: [[String]] = []
+    var assistsArray: [[String]] = []
+    var goalsArray: [[String]] = []
+    var timesArray: [[String]] = []
+    var howScoresArray: [[String]] = []
     
     var selectedCellIndex: Int!
     
-    var contentsArray: Array<Array<String>>!
-    var contentArray: Array<String>!
+    
     
     var userdefaults = UserDefaults.standard
 
@@ -43,9 +42,7 @@ class MemoryViewController: UIViewController {
 
         if userdefaults.object(forKey: "content") as? Array<Any> != nil {
             
-            contentsArray = userdefaults.object(forKey: "content") as? Array<Array<String>>
             
-            contentArray = contentsArray[selectedCellIndex]
         }
         
         // Do any additional setup after loading the view.
@@ -71,25 +68,25 @@ class MemoryViewController: UIViewController {
         
         var userdefaults = UserDefaults.standard
         
-            var whichArray = UserDefaults.standard.array(forKey: "whichArray")as? [String] ?? []
-            whichArray.append(whichItem)
-            UserDefaults.standard.set(whichArray, forKey: "whichArray")
+            var whichsArray = UserDefaults.standard.array(forKey: "whichsArray")as? [[String]] ?? []
+            whichsArray.append([whichItem])
+            UserDefaults.standard.set(whichsArray, forKey: "whichsArray")
             
-            var assistArray = UserDefaults.standard.array(forKey: "assistArray")as? [String] ?? []
-            assistArray.append(assistItem)
-            UserDefaults.standard.set(assistArray, forKey: "assistArray")
+            var assistsArray = UserDefaults.standard.array(forKey: "assistsArray")as? [[String]] ?? []
+            assistsArray.append([assistItem])
+            UserDefaults.standard.set(assistsArray, forKey: "assistsArray")
             
-            var goalArray = UserDefaults.standard.array(forKey: "goalArray")as? [String] ?? []
-            goalArray.append(goalItem)
-            UserDefaults.standard.set(goalArray, forKey: "goalArray")
+            var goalsArray = UserDefaults.standard.array(forKey: "goalsArray")as? [[String]] ?? []
+            goalsArray.append([goalItem])
+            UserDefaults.standard.set(goalsArray, forKey: "goalsArray")
         
-            var timeArray = UserDefaults.standard.array(forKey: "timeArray")as? [String] ?? []
-        timeArray.append(timeItem)
-        UserDefaults.standard.set(timeArray, forKey: "timeArray")
+            var timesArray = UserDefaults.standard.array(forKey: "timesArray")as? [[String]] ?? []
+        timesArray.append([timeItem])
+        UserDefaults.standard.set(timesArray, forKey: "timesArray")
         
-        var howScoreArray = UserDefaults.standard.array(forKey: "howScoreArray")as? [String] ?? []
-        howScoreArray.append(howScoreItem)
-        UserDefaults.standard.set(howScoreArray, forKey: "howScoreArray")
+        var howScoresArray = UserDefaults.standard.array(forKey: "howScoresArray")as? [[String]] ?? []
+        howScoresArray.append([howScoreItem])
+        UserDefaults.standard.set(howScoresArray, forKey: "howScoresArray")
         
         
         
@@ -101,15 +98,6 @@ class MemoryViewController: UIViewController {
         timeTextField.text = ""
         howScoreTextField.text = ""
         
-        contentArray.append(whichTextField.text!)
-        contentArray.append(assistTextField.text!)
-        contentArray.append(goalTextField.text!)
-        contentArray.append(timeTextField.text!)
-        contentArray.append(howScoreTextField.text!)
-        
-        contentsArray[selectedCellIndex] = contentArray
-        
-        userdefaults.set(contentsArray, forKey: "content")
         
         self.dismiss(animated: true)
         
