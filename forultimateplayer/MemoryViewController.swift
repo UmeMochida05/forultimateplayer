@@ -37,28 +37,26 @@ class MemoryViewController: UIViewController {
     
     var selectedCellIndex: Int!
     
-    
-    
     var userdefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let userDefaults = UserDefaults.standard
-        if let whichItem = userDefaults.array(forKey: "whichsArray") as? [[String]] {
+        let userdefaults = UserDefaults.standard
+        if let whichItem = userdefaults.array(forKey: "whichsArray") as? [[String]] {
             whichsArray = whichItem
         }
-        if let assistItem = userDefaults.array(forKey: "assistsArray") as? [[String]] {
+        if let assistItem = userdefaults.array(forKey: "assistsArray") as? [[String]] {
             assistsArray = assistItem
         }
-        if let goalItem = userDefaults.array(forKey: "goalsArray") as? [[String]] {
+        if let goalItem = userdefaults.array(forKey: "goalsArray") as? [[String]] {
             goalsArray = goalItem
         }
-        if let timeItem = userDefaults.array(forKey: "timesArray") as? [[String]] {
+        if let timeItem = userdefaults.array(forKey: "timesArray") as? [[String]] {
             timesArray = timeItem
             print(timeItem)
         }
-        if let howScoreItem = userDefaults.array(forKey: "howScoresArray") as? [[String]] {
+        if let howScoreItem = userdefaults.array(forKey: "howScoresArray") as? [[String]] {
             howScoresArray = howScoreItem
             print(howScoresArray)
         } else {
@@ -68,18 +66,7 @@ class MemoryViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        whichArray = whichsArray[selectedCellIndex]
-        assistArray = assistsArray[selectedCellIndex]
-        goalArray = goalsArray[selectedCellIndex]
-        timeArray = timesArray[selectedCellIndex]
-        howScoreArray = howScoresArray[selectedCellIndex]
-        
-        tableView.reloadData()
-    }
-    
+
     
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
@@ -109,30 +96,7 @@ class MemoryViewController: UIViewController {
         userdefaults.set(goalsArray, forKey: "goalsArray")
         userdefaults.set(timesArray, forKey: "timesArray")
         userdefaults.set(howScoresArray, forKey: "howScoresArray")
-        
-        var userdefaults = UserDefaults.standard
-        
-            var whichsArray = UserDefaults.standard.array(forKey: "whichsArray")as? [[String]] ?? []
-            whichsArray.append([whichItem])
-            UserDefaults.standard.set(whichsArray, forKey: "whichsArray")
-            
-            var assistsArray = UserDefaults.standard.array(forKey: "assistsArray")as? [[String]] ?? []
-            assistsArray.append([assistItem])
-            UserDefaults.standard.set(assistsArray, forKey: "assistsArray")
-            
-            var goalsArray = UserDefaults.standard.array(forKey: "goalsArray")as? [[String]] ?? []
-            goalsArray.append([goalItem])
-            UserDefaults.standard.set(goalsArray, forKey: "goalsArray")
-        
-            var timesArray = UserDefaults.standard.array(forKey: "timesArray")as? [[String]] ?? []
-        timesArray.append([timeItem])
-        UserDefaults.standard.set(timesArray, forKey: "timesArray")
-        
-        var howScoresArray = UserDefaults.standard.array(forKey: "howScoresArray")as? [[String]] ?? []
-        howScoresArray.append([howScoreItem])
-        UserDefaults.standard.set(howScoresArray, forKey: "howScoresArray")
-
-        
+    
         self.navigationController?.popViewController(animated: true)
         
         whichItem = whichTextField.text
@@ -140,8 +104,6 @@ class MemoryViewController: UIViewController {
         goalItem = goalTextField.text
         timeItem = timeTextField.text
         howScoreItem = howScoreTextField.text
-    
-        self .performSegue(withIdentifier: "toResult", sender: nil)
         
         whichTextField.text = ""
         assistTextField.text = ""

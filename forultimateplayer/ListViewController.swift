@@ -96,7 +96,8 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextVC = storyboard.instantiateViewController(identifier: "ResultViewController")
+        let nextVC = storyboard.instantiateViewController(identifier: "ResultViewController") as! ResultViewController
+        nextVC.selectedCellIndex = indexPath.row
         navigationController?.pushViewController(nextVC, animated: true)
         
     }

@@ -14,6 +14,12 @@ class ResultViewController: UIViewController {
     var timesArray: [[String]] = []
     var howScoresArray: [[String]] = []
     
+    var whichArray: [String] = []
+    var assistArray: [String] = []
+    var goalArray: [String] = []
+    var timeArray: [String] = []
+    var howScoreArray: [String] = []
+    
     var selectedCellIndex: Int!
     
     var userdefaults = UserDefaults.standard
@@ -97,7 +103,7 @@ class ResultViewController: UIViewController {
         
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return whichsArray.count
+            return whichArray.count
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -130,7 +136,6 @@ class ResultViewController: UIViewController {
         
         @IBAction func addButtonTapped(_ sender: Any) {
             
-            performSegue(withIdentifier: "toMemoryVC", sender: nil)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let nextVC = storyboard.instantiateViewController(identifier: "ResultViewController")
             performSegue(withIdentifier: "toMemoryVC", sender: nil)
@@ -139,8 +144,6 @@ class ResultViewController: UIViewController {
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "toMemoryVC" {
                 let destinationVC = segue.destination as! MemoryViewController
-                
-                
                 destinationVC.selectedCellIndex = selectedCellIndex
                 
             }
