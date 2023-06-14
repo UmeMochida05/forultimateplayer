@@ -302,7 +302,6 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="l9c-bN-8Vj">
                             <connections>
                                 <action selector="saveButtonTapped:" destination="bnV-2O-iAt" id="LrC-jZ-hom"/>
-                                <segue destination="0eT-Ef-cgV" kind="unwind" unwindAction="toFinishWithSegue:" id="kek-UK-iPF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -315,7 +314,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chH-PC-AuY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="0eT-Ef-cgV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="7218" y="367"/>
         </scene>

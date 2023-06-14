@@ -53,6 +53,30 @@ class ResultViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        tableView.register(UINib(nibName: "ResultViewCell", bundle: nil), forCellReuseIdentifier: "customCell2")
+        
+        let userDefaults = UserDefaults.standard
+        if let whichItem = userDefaults.array(forKey: "whichsArray") as? [[String]] {
+            whichsArray = whichItem
+        }
+        if let assistItem = userDefaults.array(forKey: "assistsArray") as? [[String]] {
+            assistsArray = assistItem
+        }
+        if let goalItem = userDefaults.array(forKey: "goalsArray") as? [[String]] {
+            goalsArray = goalItem
+        }
+        if let timeItem = userDefaults.array(forKey: "timesArray") as? [[String]] {
+            timesArray = timeItem
+            print(timeItem)
+        }
+        if let howScoreItem = userDefaults.array(forKey: "howScoresArray") as? [[String]] {
+            howScoresArray = howScoreItem
+            print(howScoresArray)
+        } else {
+            
+        }
+        
         tableView.reloadData()
     }
     

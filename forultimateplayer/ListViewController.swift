@@ -9,11 +9,6 @@ import UIKit
 
 class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    
-    
-    @IBAction func toFinish(segue: UIStoryboardSegue) {
-        }
-    
     var titleOfMatchArray: [String] = []
     var dateOfMatchArray: [Date] = []
     var styleOfMatchArray: [String] = []
@@ -53,8 +48,19 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
         
+        tableView.register(UINib(nibName: "ListViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
+        
+        if let titleItem = userdefaults.array(forKey: "titleOfMatchArray") as? [String] {
+            titleOfMatchArray = titleItem
+        }
+        if let dateItem = userdefaults.array(forKey: "dateOfMatchArray") as? [Date] {
+            dateOfMatchArray = dateItem
+        }
+        if let styleItem = userdefaults.array(forKey: "styleOfMatchArray") as? [String] {
+            styleOfMatchArray = styleItem
+        }
+        tableView.reloadData()
         
     }
     
@@ -87,22 +93,12 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
     }
     
-    @IBAction func saveButtonTapped(_ sender: Any) {
-        
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let resultVC = storyboard?.instantiateViewController(identifier: "ResultViewController") as? ResultViewController else {
-            return
-        }
         
-        resultVC.selectedCellIndex = indexPath.row
-        
-        present(resultVC, animated: true, completion: nil)
-        
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = storyboard.instantiateViewController(identifier: "ResultViewController")
+        navigationController?.pushViewController(nextVC, animated: true)
         
     }
     

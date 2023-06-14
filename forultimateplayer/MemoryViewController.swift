@@ -23,13 +23,17 @@ class MemoryViewController: UIViewController {
     var timeItem: String!
     var howScoreItem: String!
     
-    var doubleArray: [[String]] = []
-    
     var whichsArray: [[String]] = []
     var assistsArray: [[String]] = []
     var goalsArray: [[String]] = []
     var timesArray: [[String]] = []
     var howScoresArray: [[String]] = []
+    
+    var whichArray: [String] = []
+    var assistArray: [String] = []
+    var goalArray: [String] = []
+    var timeArray: [String] = []
+    var howScoreArray: [String] = []
     
     var selectedCellIndex: Int!
     
@@ -40,31 +44,71 @@ class MemoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if userdefaults.object(forKey: "content") as? Array<Any> != nil {
-            
+        let userDefaults = UserDefaults.standard
+        if let whichItem = userDefaults.array(forKey: "whichsArray") as? [[String]] {
+            whichsArray = whichItem
+        }
+        if let assistItem = userDefaults.array(forKey: "assistsArray") as? [[String]] {
+            assistsArray = assistItem
+        }
+        if let goalItem = userDefaults.array(forKey: "goalsArray") as? [[String]] {
+            goalsArray = goalItem
+        }
+        if let timeItem = userDefaults.array(forKey: "timesArray") as? [[String]] {
+            timesArray = timeItem
+            print(timeItem)
+        }
+        if let howScoreItem = userDefaults.array(forKey: "howScoresArray") as? [[String]] {
+            howScoresArray = howScoreItem
+            print(howScoresArray)
+        } else {
             
         }
         
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        whichArray = whichsArray[selectedCellIndex]
+        assistArray = assistsArray[selectedCellIndex]
+        goalArray = goalsArray[selectedCellIndex]
+        timeArray = timesArray[selectedCellIndex]
+        howScoreArray = howScoresArray[selectedCellIndex]
+        
+        tableView.reloadData()
+    }
+    
     
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        guard let content = whichTextField.text, !content.isEmpty else {
+        guard let whichContent = whichTextField.text, !whichContent.isEmpty else {
             return
         }
         
-        guard let content = timeTextField.text, !content.isEmpty else {
+        guard let timeContent = timeTextField.text, !timeContent.isEmpty else {
             return
         }
         
-        whichItem = whichTextField.text
-        assistItem = assistTextField.text
-        goalItem = goalTextField.text
-        timeItem = timeTextField.text
-        howScoreItem = howScoreTextField.text
+        whichArray.append(whichContent)
+        assistArray.append(assistTextField.text ?? "")
+        goalArray.append(goalTextField.text ?? "")
+        timeArray.append(timeContent)
+        howScoreArray.append(howScoreTextField.text ?? "")
         
+        //contentArrayを2重のcontentsArrayにも追加。(置き換え。)
+        whichsArray[selectedCellIndex] = whichArray
+        assistsArray[selectedCellIndex] = assistArray
+        goalsArray[selectedCellIndex] = goalArray
+        timesArray[selectedCellIndex] = timeArray
+        howScoresArray[selectedCellIndex] = howScoreArray
+        
+        userdefaults.set(whichsArray, forKey: "whichsArray")
+        userdefaults.set(assistsArray, forKey: "assistsArray")
+        userdefaults.set(goalsArray, forKey: "goalsArray")
+        userdefaults.set(timesArray, forKey: "timesArray")
+        userdefaults.set(howScoresArray, forKey: "howScoresArray")
         
         var userdefaults = UserDefaults.standard
         
@@ -87,9 +131,16 @@ class MemoryViewController: UIViewController {
         var howScoresArray = UserDefaults.standard.array(forKey: "howScoresArray")as? [[String]] ?? []
         howScoresArray.append([howScoreItem])
         UserDefaults.standard.set(howScoresArray, forKey: "howScoresArray")
+
         
+        self.navigationController?.popViewController(animated: true)
         
-        
+        whichItem = whichTextField.text
+        assistItem = assistTextField.text
+        goalItem = goalTextField.text
+        timeItem = timeTextField.text
+        howScoreItem = howScoreTextField.text
+    
         self .performSegue(withIdentifier: "toResult", sender: nil)
         
         whichTextField.text = ""
@@ -99,7 +150,7 @@ class MemoryViewController: UIViewController {
         howScoreTextField.text = ""
         
         
-        self.dismiss(animated: true)
+       
         
             
            
