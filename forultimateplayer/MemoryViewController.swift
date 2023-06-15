@@ -23,11 +23,11 @@ class MemoryViewController: UIViewController {
     var timeItem: String!
     var howScoreItem: String!
     
-    var whichsArray: [[String]] = []
-    var assistsArray: [[String]] = []
-    var goalsArray: [[String]] = []
-    var timesArray: [[String]] = []
-    var howScoresArray: [[String]] = []
+    var whichsArray: [[String]] = [[]]
+    var assistsArray: [[String]] = [[]]
+    var goalsArray: [[String]] = [[]]
+    var timesArray: [[String]] = [[]]
+    var howScoresArray: [[String]] = [[]]
     
     var whichArray: [String] = []
     var assistArray: [String] = []
@@ -45,6 +45,7 @@ class MemoryViewController: UIViewController {
         if let whichItem = userdefaults.array(forKey: "whichsArray") as? [[String]] {
             whichsArray = whichItem
             whichArray = whichsArray[selectedCellIndex]
+            print(whichArray,whichsArray)
         }
         if let assistItem = userdefaults.array(forKey: "assistsArray") as? [[String]] {
             assistsArray = assistItem
@@ -88,7 +89,7 @@ class MemoryViewController: UIViewController {
         timeArray.append(timeContent)
         howScoreArray.append(howScoreTextField.text ?? "")
         
-        if selectedCellIndex >= 0
+        
         //contentArrayを2重のcontentsArrayにも追加。(置き換え。)
         whichsArray[selectedCellIndex] = whichArray
         assistsArray[selectedCellIndex] = assistArray

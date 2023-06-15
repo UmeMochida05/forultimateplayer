@@ -7,7 +7,10 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
+class ResultViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    
+    
     var whichsArray: [[String]] = []
     var assistsArray: [[String]] = []
     var goalsArray: [[String]] = []
@@ -61,27 +64,33 @@ class ResultViewController: UIViewController {
         
         tableView.register(UINib(nibName: "ResultViewCell", bundle: nil), forCellReuseIdentifier: "customCell2")
         
-        let userDefaults = UserDefaults.standard
-        if let whichItem = userDefaults.array(forKey: "whichsArray") as? [[String]] {
+        
+        let userdefaults = UserDefaults.standard
+        if let whichItem = userdefaults.array(forKey: "whichsArray") as? [[String]] {
             whichsArray = whichItem
+            whichArray = whichsArray[selectedCellIndex]
         }
-        if let assistItem = userDefaults.array(forKey: "assistsArray") as? [[String]] {
+        if let assistItem = userdefaults.array(forKey: "assistsArray") as? [[String]] {
             assistsArray = assistItem
+            assistArray = assistsArray[selectedCellIndex]
         }
-        if let goalItem = userDefaults.array(forKey: "goalsArray") as? [[String]] {
+        if let goalItem = userdefaults.array(forKey: "goalsArray") as? [[String]] {
             goalsArray = goalItem
+            goalArray = goalsArray[selectedCellIndex]
         }
-        if let timeItem = userDefaults.array(forKey: "timesArray") as? [[String]] {
+        if let timeItem = userdefaults.array(forKey: "timesArray") as? [[String]] {
             timesArray = timeItem
             print(timeItem)
+            timeArray = timesArray[selectedCellIndex]
         }
-        if let howScoreItem = userDefaults.array(forKey: "howScoresArray") as? [[String]] {
+        if let howScoreItem = userdefaults.array(forKey: "howScoresArray") as? [[String]] {
             howScoresArray = howScoreItem
             print(howScoresArray)
+            howScoreArray = howScoresArray[selectedCellIndex]
         } else {
             
         }
-       
+        
         tableView.reloadData()
     }
     
@@ -112,50 +121,46 @@ class ResultViewController: UIViewController {
      }
      */
     
-}
     
     
-    extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(whichArray.count)
+        return whichArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell2", for: indexPath) as! ResultViewCell
+        
+        selectedCellIndex = indexPath.row
         
         
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return whichsArray.count
-        }
+        cell.whichlabel.text = whichArray[indexPath.row]
+        cell.assistlabel.text = assistArray[indexPath.row]
+        cell.goallabel.text = goalArray[indexPath.row]
+        cell.timelabel.text = timeArray[indexPath.row]
+        cell.howScorelabel.text = howScoreArray[indexPath.row]
         
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "customCell2", for: indexPath) as! ResultViewCell
-            
-            selectedCellIndex = indexPath.row
-            
-            let whichArray = whichsArray[selectedCellIndex]
-            let assistArray = assistsArray[selectedCellIndex]
-            let goalArray = goalsArray[selectedCellIndex]
-            let timeArray = timesArray[selectedCellIndex]
-            let howScoreArray = howScoresArray[selectedCellIndex]
-            
-            cell.whichlabel.text = whichArray.joined(separator: ",")
-            cell.assistlabel.text = assistArray.joined(separator: ",")
-            cell.goallabel.text = goalArray.joined(separator: ",")
-            cell.timelabel.text = timeArray.joined(separator: ",")
-            cell.howScorelabel.text = howScoreArray.joined(separator: ",")
-            
-            print(whichArray)
-            print(assistArray)
-            print(goalArray)
-            print(timeArray)
-            print(howScoreArray)
-            
-            
-            
-            return cell
-        }
+        print(whichArray)
+        print(assistArray)
+        print(goalArray)
+        print(timeArray)
+        print(howScoreArray)
         
         
-       // @IBAction func Back(_ sender: Any) {
-            //self.dismiss(animated: true)
-        //}
         
+        return cell
     }
     
     
+    // @IBAction func Back(_ sender: Any) {
+    //self.dismiss(animated: true)
+    //}
+    
+}
+
+
 

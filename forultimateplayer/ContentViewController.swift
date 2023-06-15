@@ -88,8 +88,48 @@ class ContentViewController: UIViewController {
         titleTextField.text = ""
         styleTextField.text = ""
         
+        //試合の数に合わせて試合情報を入れるから二重配列の中の配列を用意しておく
         
+        var whichsArray: [[String]] = []
+        var assistsArray: [[String]] = []
+        var goalsArray: [[String]] = []
+        var timesArray: [[String]] = []
+        var howScoresArray: [[String]] = []
         
+        if let whichItem = userdefaults.array(forKey: "whichsArray") as? [[String]] {
+            whichsArray = whichItem
+            whichsArray.append([])
+            userdefaults.set(whichsArray, forKey: "whichsArray")
+            print(whichsArray)
+        }
+        if let assistItem = userdefaults.array(forKey: "assistsArray") as? [[String]] {
+            assistsArray = assistItem
+            assistsArray.append([])
+            userdefaults.set(assistsArray, forKey: "assistsArray")
+            print(assistsArray)
+        }
+        if let goalItem = userdefaults.array(forKey: "goalsArray") as? [[String]] {
+            goalsArray = goalItem
+            goalsArray.append([])
+            userdefaults.set(goalsArray, forKey: "goalsArray")
+            print(goalsArray)
+        }
+        if let timeItem = userdefaults.array(forKey: "timesArray") as? [[String]] {
+            timesArray = timeItem
+            print(timeItem)
+            timesArray.append([])
+            userdefaults.set(timesArray, forKey: "timesArray")
+            print(timesArray)
+        }
+        if let howScoreItem = userdefaults.array(forKey: "howScoresArray") as? [[String]] {
+            howScoresArray = howScoreItem
+            print(howScoresArray)
+            howScoresArray.append([])
+            userdefaults.set(howScoresArray, forKey: "howScoresArray")
+            print(howScoresArray)
+        } else {
+            
+        }
         
         
         

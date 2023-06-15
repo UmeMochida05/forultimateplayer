@@ -57,7 +57,7 @@
             <connections>
                 <outlet property="assistlabel" destination="UPQ-dD-0wl" id="vXv-OJ-NYF"/>
                 <outlet property="goallabel" destination="xP1-Uv-hAn" id="rTw-Ao-R5j"/>
-                <outlet property="howscorelabel" destination="PWn-Dj-MgK" id="6dQ-44-2gY"/>
+                <outlet property="howScorelabel" destination="PWn-Dj-MgK" id="DNk-lG-M3y"/>
                 <outlet property="timelabel" destination="Jsa-1R-ExV" id="JE1-nQ-huj"/>
                 <outlet property="whichlabel" destination="QYC-rv-deQ" id="Qfo-C0-Bh3"/>
             </connections>
