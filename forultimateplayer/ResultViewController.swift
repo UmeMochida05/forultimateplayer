@@ -33,21 +33,20 @@ class ResultViewController: UIViewController {
         
         tableView.register(UINib(nibName: "ResultViewCell", bundle: nil), forCellReuseIdentifier: "customCell2")
         
-        let userDefaults = UserDefaults.standard
-        if let whichItem = userDefaults.array(forKey: "whichsArray") as? [[String]] {
+        if let whichItem = userdefaults.array(forKey: "whichsArray") as? [[String]] {
             whichsArray = whichItem
         }
-        if let assistItem = userDefaults.array(forKey: "assistsArray") as? [[String]] {
+        if let assistItem = userdefaults.array(forKey: "assistsArray") as? [[String]] {
             assistsArray = assistItem
         }
-        if let goalItem = userDefaults.array(forKey: "goalsArray") as? [[String]] {
+        if let goalItem = userdefaults.array(forKey: "goalsArray") as? [[String]] {
             goalsArray = goalItem
         }
-        if let timeItem = userDefaults.array(forKey: "timesArray") as? [[String]] {
+        if let timeItem = userdefaults.array(forKey: "timesArray") as? [[String]] {
             timesArray = timeItem
             print(timeItem)
         }
-        if let howScoreItem = userDefaults.array(forKey: "howScoresArray") as? [[String]] {
+        if let howScoreItem = userdefaults.array(forKey: "howScoresArray") as? [[String]] {
             howScoresArray = howScoreItem
             print(howScoresArray)
         } else {
@@ -86,6 +85,23 @@ class ResultViewController: UIViewController {
         tableView.reloadData()
     }
     
+    @IBAction func addButtonTapped(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = storyboard.instantiateViewController(identifier: "MemoryViewController") as! MemoryViewController
+        //performSegue(withIdentifier: "toMemoryVC", sender: nil)
+        nextVC.selectedCellIndex = selectedCellIndex
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMemoryVC" {
+            let destinationVC = segue.destination as! MemoryViewController
+            destinationVC.selectedCellIndex = selectedCellIndex
+            
+        }
+    }
+    
     /*
      // MARK: - Navigation
      
@@ -103,7 +119,7 @@ class ResultViewController: UIViewController {
         
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return whichArray.count
+            return whichsArray.count
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -134,20 +150,6 @@ class ResultViewController: UIViewController {
             return cell
         }
         
-        @IBAction func addButtonTapped(_ sender: Any) {
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let nextVC = storyboard.instantiateViewController(identifier: "ResultViewController")
-            performSegue(withIdentifier: "toMemoryVC", sender: nil)
-        }
-        
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "toMemoryVC" {
-                let destinationVC = segue.destination as! MemoryViewController
-                destinationVC.selectedCellIndex = selectedCellIndex
-                
-            }
-        }
         
        // @IBAction func Back(_ sender: Any) {
             //self.dismiss(animated: true)

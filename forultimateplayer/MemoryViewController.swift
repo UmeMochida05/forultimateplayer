@@ -42,7 +42,6 @@ class MemoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let userdefaults = UserDefaults.standard
         if let whichItem = userdefaults.array(forKey: "whichsArray") as? [[String]] {
             whichsArray = whichItem
             whichArray = whichsArray[selectedCellIndex]
@@ -89,6 +88,7 @@ class MemoryViewController: UIViewController {
         timeArray.append(timeContent)
         howScoreArray.append(howScoreTextField.text ?? "")
         
+        if selectedCellIndex >= 0
         //contentArrayを2重のcontentsArrayにも追加。(置き換え。)
         whichsArray[selectedCellIndex] = whichArray
         assistsArray[selectedCellIndex] = assistArray
@@ -102,13 +102,7 @@ class MemoryViewController: UIViewController {
         userdefaults.set(timesArray, forKey: "timesArray")
         userdefaults.set(howScoresArray, forKey: "howScoresArray")
     
-        self.navigationController?.popViewController(animated: true)
-        
-        whichItem = whichTextField.text
-        assistItem = assistTextField.text
-        goalItem = goalTextField.text
-        timeItem = timeTextField.text
-        howScoreItem = howScoreTextField.text
+        navigationController?.popViewController(animated: true)
         
         whichTextField.text = ""
         assistTextField.text = ""
