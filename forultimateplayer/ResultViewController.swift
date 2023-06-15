@@ -134,10 +134,7 @@ class ResultViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell2", for: indexPath) as! ResultViewCell
-        
-        selectedCellIndex = indexPath.row
-        
-        
+    
         cell.whichlabel.text = whichArray[indexPath.row]
         cell.assistlabel.text = assistArray[indexPath.row]
         cell.goallabel.text = goalArray[indexPath.row]
@@ -155,10 +152,10 @@ class ResultViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCellIndex = indexPath.row
+    }
     
-    // @IBAction func Back(_ sender: Any) {
-    //self.dismiss(animated: true)
-    //}
     
 }
 
