@@ -11,11 +11,11 @@ class ResultViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     
-    var whichsArray: [[String]] = []
-    var assistsArray: [[String]] = []
-    var goalsArray: [[String]] = []
-    var timesArray: [[String]] = []
-    var howScoresArray: [[String]] = []
+    var whichsArray: [[String]] = [[]]
+    var assistsArray: [[String]] = [[]]
+    var goalsArray: [[String]] = [[]]
+    var timesArray: [[String]] = [[]]
+    var howScoresArray: [[String]] = [[]]
     
     var whichArray: [String] = []
     var assistArray: [String] = []
