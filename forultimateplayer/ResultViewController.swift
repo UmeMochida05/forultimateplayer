@@ -35,22 +35,28 @@ class ResultViewController: UIViewController, UITableViewDataSource, UITableView
         
         
         tableView.register(UINib(nibName: "ResultViewCell", bundle: nil), forCellReuseIdentifier: "customCell2")
-        
+       
         if let whichItem = userdefaults.array(forKey: "whichsArray") as? [[String]] {
             whichsArray = whichItem
+            whichArray = whichsArray[selectedCellIndex]
+            print(whichArray,whichsArray)
         }
         if let assistItem = userdefaults.array(forKey: "assistsArray") as? [[String]] {
             assistsArray = assistItem
+            assistArray = assistsArray[selectedCellIndex]
         }
         if let goalItem = userdefaults.array(forKey: "goalsArray") as? [[String]] {
             goalsArray = goalItem
+            goalArray = goalsArray[selectedCellIndex]
         }
         if let timeItem = userdefaults.array(forKey: "timesArray") as? [[String]] {
             timesArray = timeItem
+            timeArray = timesArray[selectedCellIndex]
             print(timeItem)
         }
         if let howScoreItem = userdefaults.array(forKey: "howScoresArray") as? [[String]] {
             howScoresArray = howScoreItem
+            howScoreArray = howScoresArray[selectedCellIndex]
             print(howScoresArray)
         } else {
             
